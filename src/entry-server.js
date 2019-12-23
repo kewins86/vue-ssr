@@ -15,9 +15,9 @@ export default context => {
   Promise.allSettled(matchedComponents.map(Component => {
     if (Component.asyncData) {
       return Component.asyncData({
-              store
-            })
-        }
+          store
+        })
+      }
     })).then(() => {
         context.state = store.state
         resolve(app)          

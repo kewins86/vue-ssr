@@ -5,7 +5,7 @@ const renderer = require('vue-server-renderer').createRenderer()
 const app = express()
 
 // Server
-const createApp = require('dist/bundle.server')['default']
+const createApp = require('./dist/bundle.server')['default']
 
 // Client
 const clientBundleFileUrl = '/bundle.client.js'
@@ -65,6 +65,6 @@ app.get('*', (req, res) => {
 
 })
 
-app.listen(8081, () => {
+app.listen(8080, () => {
    console.log('启动') 
 })
