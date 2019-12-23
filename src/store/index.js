@@ -1,4 +1,4 @@
-// store.js
+// store
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
@@ -12,7 +12,7 @@ export function createStore () {
     },
     actions: {
       getList ({ commit }) {
-        return axios.get('http://localhost:8080/api/getList').then((res) => {
+        return axios.get('http://localhost:8081/api/getList').then((res) => {
             commit('setList', res.data.list)
         })
       }
