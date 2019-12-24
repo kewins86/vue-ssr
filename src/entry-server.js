@@ -12,11 +12,13 @@ export default context => {
 		return reject({code: 404})
 	}
 		
-  Promise.allSettled(matchedComponents.map(Component => {
-    if (Component.asyncData) {
-      return Component.asyncData({
+    Promise.all(matchedComponents.map(Component => {
+      if (Component.asyncData) {
+        return Component.asyncData({
           store
         })
+      } else {
+        resolve(app)
       }
     })).then(() => {
         context.state = store.state

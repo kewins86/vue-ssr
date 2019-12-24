@@ -5,7 +5,7 @@ const renderer = require('vue-server-renderer').createRenderer()
 const app = express()
 
 // Server
-const createApp = require('./dist/bundle.server')['default']
+const createApp = require('./dist/bundle.server.js')['default']
 
 // Client
 const clientBundleFileUrl = '/bundle.client.js'
@@ -21,6 +21,16 @@ app.get('/api/getList', (req, res) => {
                 {name:'news3', id:3},
                 {name:'news4', id:4},
             ]
+        }
+    )
+})
+app.get('/api/getNews', (req, res) => {
+    res.json(
+        {
+            data: {
+                title: '今日焦点',
+                content: '撒地方就是家赖斯佛埃及'
+            }
         }
     )
 })

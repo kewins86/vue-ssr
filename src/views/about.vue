@@ -1,11 +1,19 @@
 <template>
-  <div>this is about page</div>
+  <div>
+    <h1>{{news.title}}</h1>
+    <p>{{news.content}}</p>
+  </div>
 </template>
 
 <script>
 export default {
-  data() {
-      return {}
+  asyncData({ store }) {
+    return store.dispatch('getNews')
+  },
+  computed: {
+    news() {
+      return this.$store.state.news
+    }
   }
 }
 </script>
