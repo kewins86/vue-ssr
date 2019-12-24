@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>about</h1>
     <h1>{{news.title}}</h1>
     <p>{{news.content}}</p>
   </div>

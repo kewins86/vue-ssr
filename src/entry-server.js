@@ -3,14 +3,13 @@ import { createApp } from './app'
 export default context => {
 	
   return new Promise((resolve, reject) => {
-    const { app, router, store } = createApp()
+    const { app, router, store } = createApp(context)
     router.push(context.url)
 
     const matchedComponents = router.getMatchedComponents()
-    console.log('router',matchedComponents)
     if (!matchedComponents.length) {
-		return reject({code: 404})
-	}
+      return reject({code: 404})
+    }
 		
     Promise.all(matchedComponents.map(Component => {
       if (Component.asyncData) {

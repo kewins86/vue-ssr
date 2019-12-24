@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import homeRouter from './home.js'
-import aboutRouter from './about.js'
-import blogRouter from './blog.js'
+import HomeRouter from './Home.js'
+import AboutRouter from './About.js'
+import BlogRouter from './Blog.js'
+import Notfound from './notfound.js'
 
 Vue.use(Router)
 
@@ -10,9 +11,10 @@ export function createRouter() {
     return new Router({
         mode: 'history',
         routes: [
-            ...homeRouter,
-            ...aboutRouter,
-            ...blogRouter
+            ...HomeRouter,
+            ...AboutRouter,
+            ...BlogRouter,
+            // ...Notfound,
         ]
     })
 }
